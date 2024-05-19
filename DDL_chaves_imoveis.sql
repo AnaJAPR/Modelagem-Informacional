@@ -1,8 +1,8 @@
 -- Create tables without foreign key dependencies or with resolvable dependencies
 CREATE TABLE UF
 (
-  UF INT NOT NULL,
-  UFEstadoNome VARCHAR(100) NOT NULL,
+  UF CHAR(2) NOT NULL,
+  UFEstadoNome VARCHAR(20) NOT NULL,
   PRIMARY KEY (UF)
 );
 
@@ -10,24 +10,21 @@ CREATE TABLE CEP
 (
   TipoLogradouro VARCHAR(50) NOT NULL,
   CEP VARCHAR(9) NOT NULL,
-  CEPMunicipio VARCHAR(100) NOT NULL,
-  NmLogradouro VARCHAR(255) NOT NULL,
-  UF INT NOT NULL,
+  CEPMunicipio VARCHAR(40) NOT NULL,
+  NmLogradouro VARCHAR(100) NOT NULL,
+  UF CHAR(2) NOT NULL,
   PRIMARY KEY (CEP),
   FOREIGN KEY (UF) REFERENCES UF(UF)
 );
 
--- Temporarily skip tables with unresolved dependencies (Funcionario, Cliente, Regiao)
-
--- Create Endereco after CEP but initially skip foreign key to Regiao
 CREATE TABLE Endereco
 (
-  EndID INT NOT NULL,
+  EndID CHAR(7) NOT NULL,
   EndNumero INT,
-  EndComplemento VARCHAR(255),
-  EndBairro VARCHAR(255) NOT NULL,
-  CEP VARCHAR(9) NOT NULL,
-  RegiaoID INT NOT NULL,
+  EndComplemento VARCHAR(100),
+  EndBairro VARCHAR(100) NOT NULL,
+  CEP CHAR(9) NOT NULL,
+  RegiaoID CHAR(7),
   PRIMARY KEY (EndID),
   FOREIGN KEY (CEP) REFERENCES CEP(CEP)
 );
@@ -35,13 +32,13 @@ CREATE TABLE Endereco
 -- Create Funcionario after Endereco
 CREATE TABLE Funcionario
 (
-  FuncPrimNome VARCHAR(255) NOT NULL,
-  FuncUltimoNome VARCHAR(255) NOT NULL,
+  FuncPrimNome VARCHAR(100) NOT NULL,
+  FuncUltimoNome VARCHAR(100) NOT NULL,
   FuncCPF CHAR(11) NOT NULL,
   FuncDtNasc DATE NOT NULL,
   FuncCargo VARCHAR(100) NOT NULL,
-  FuncSalario FLOAT NOT NULL,
-  EndID INT NOT NULL,
+  FuncSalario MONEY NOT NULL,
+  EndID CHAR(7) NOT NULL,
   PRIMARY KEY (FuncCPF),
   FOREIGN KEY (EndID) REFERENCES Endereco(EndID)
 );
@@ -50,7 +47,7 @@ CREATE TABLE Funcionario
 CREATE TABLE Corretor
 (
   CorretorRegistro VARCHAR(100) NOT NULL,
-  OrcamentoMes FLOAT NOT NULL,
+  OrcamentoMes MONEY NOT NULL,
   FuncCPF CHAR(11) NOT NULL,
   PRIMARY KEY (FuncCPF),
   FOREIGN KEY (FuncCPF) REFERENCES Funcionario(FuncCPF),
@@ -60,7 +57,7 @@ CREATE TABLE Corretor
 -- Now create Regiao after Corretor and add missing foreign key
 CREATE TABLE Regiao
 (
-  RegiaoID INT NOT NULL,
+  RegiaoID CHAR(7) NOT NULL,
   RegiaoNome VARCHAR(100) NOT NULL,
   FuncCPF CHAR(11) NOT NULL,
   PRIMARY KEY (RegiaoID),
@@ -74,28 +71,28 @@ ALTER TABLE Endereco ADD CONSTRAINT FK_Endereco_Regiao
 
 CREATE TABLE Cliente
 (
-  ClientePrimNome VARCHAR(255) NOT NULL,
-  CliUltimoNome VARCHAR(255) NOT NULL,
+  ClientePrimNome VARCHAR(20) NOT NULL,
+  CliUltimoNome VARCHAR(20) NOT NULL,
   ClienteCPF CHAR(11) NOT NULL,
   ClienteDtNasc DATE NOT NULL,
-  ClienteTelefone VARCHAR(50) NOT NULL,
-  EndID INT NOT NULL,
+  ClienteTelefone VARCHAR(15) NOT NULL,
+  EndID CHAR(7) NOT NULL,
   PRIMARY KEY (ClienteCPF),
   FOREIGN KEY (EndID) REFERENCES Endereco(EndID)
 );
 
 CREATE TABLE Imovel
 (
-  ImovelID INT NOT NULL,
+  ImovelID CHAR(7) NOT NULL,
   ImovelTipo VARCHAR(100) NOT NULL,
   ImovelQtdQuartos INT NOT NULL,
   ImovelQtdBanheiros INT NOT NULL,
   ImovelQtdGaragem INT NOT NULL,
   ImovelM2 INT NOT NULL,
-  ImovelValor FLOAT NOT NULL,
+  ImovelValor MONEY NOT NULL,
   ImovelVazio Boolean NOT NULL,
-  RegiaoID INT NOT NULL,
-  EndID INT NOT NULL,
+  RegiaoID CHAR(7) NOT NULL,
+  EndID CHAR(7) NOT NULL,
   PRIMARY KEY (ImovelID),
   FOREIGN KEY (RegiaoID) REFERENCES Regiao(RegiaoID),
   FOREIGN KEY (EndID) REFERENCES Endereco(EndID)
@@ -103,11 +100,11 @@ CREATE TABLE Imovel
 
 CREATE TABLE Anuncio
 (
-  AnuncioID INT NOT NULL,
+  AnuncioID CHAR(7) NOT NULL,
   AnuncioMidia VARCHAR(100) NOT NULL,
-  AnuncioPreco FLOAT NOT NULL,
+  AnuncioPreco MONEY NOT NULL,
   AnuncioData DATE NOT NULL,
-  ImovelID INT NOT NULL,
+  ImovelID CHAR(7) NOT NULL,
   FuncCPF CHAR(11) NOT NULL,
   PRIMARY KEY (AnuncioID),
   FOREIGN KEY (ImovelID) REFERENCES Imovel(ImovelID),
@@ -116,15 +113,15 @@ CREATE TABLE Anuncio
 
 CREATE TABLE Contato
 (
-  ContatoID INT NOT NULL,
-  ContatoMeio VARCHAR(255) NOT NULL,
-  ContatoNatureza VARCHAR(255) NOT NULL,
-  ContatoNome VARCHAR(255) NOT NULL,
-  ContatoTelefone VARCHAR(100) NOT NULL,
+  ContatoID CHAR(7) NOT NULL,
+  ContatoMeio VARCHAR(100) NOT NULL,
+  ContatoNatureza VARCHAR(100) NOT NULL,
+  ContatoNome VARCHAR(100) NOT NULL,
+  ContatoTelefone VARCHAR(15) NOT NULL,
   DtContato DATE NOT NULL,
   FuncCPF CHAR(11) NOT NULL,
   ClienteCPF CHAR(11),
-  ImovelID INT,
+  ImovelID CHAR(7),
   PRIMARY KEY (ContatoID, FuncCPF, ClienteCPF, ImovelID),
   FOREIGN KEY (FuncCPF) REFERENCES Funcionario(FuncCPF),
   FOREIGN KEY (ClienteCPF) REFERENCES Cliente(ClienteCPF),
@@ -133,10 +130,10 @@ CREATE TABLE Contato
 
 CREATE TABLE TransVenda
 (
-  TransVendaID INT NOT NULL,
-  TransVendaValor FLOAT NOT NULL,
+  TransVendaID CHAR(7) NOT NULL,
+  TransVendaValor MONEY NOT NULL,
   TransVendaData DATE NOT NULL,
-  TransComissao FLOAT NOT NULL,
+  TransComissao MONEY NOT NULL,
   FuncCPF CHAR(11) NOT NULL,
   PRIMARY KEY (TransVendaID),
   FOREIGN KEY (FuncCPF) REFERENCES Corretor(FuncCPF)
@@ -144,7 +141,7 @@ CREATE TABLE TransVenda
 
 CREATE TABLE CliPropriedade
 (
-  ImovelID INT NOT NULL,
+  ImovelID CHAR(7) NOT NULL,
   ClienteCPF CHAR(11) NOT NULL,
   PRIMARY KEY (ImovelID, ClienteCPF),
   FOREIGN KEY (ImovelID) REFERENCES Imovel(ImovelID),
@@ -153,8 +150,8 @@ CREATE TABLE CliPropriedade
 
 CREATE TABLE ImovelTransacao
 (
-  ImovelID INT NOT NULL,
-  TransVendaID INT NOT NULL,
+  ImovelID CHAR(7) NOT NULL,
+  TransVendaID CHAR(7) NOT NULL,
   PRIMARY KEY (ImovelID, TransVendaID),
   FOREIGN KEY (ImovelID) REFERENCES Imovel(ImovelID),
   FOREIGN KEY (TransVendaID) REFERENCES TransVenda(TransVendaID)
@@ -162,7 +159,7 @@ CREATE TABLE ImovelTransacao
 
 CREATE TABLE ClienteCompra
 (
-  TransVendaID INT NOT NULL,
+  TransVendaID CHAR(7) NOT NULL,
   ClienteCPF CHAR(11) NOT NULL,
   PRIMARY KEY (TransVendaID, ClienteCPF),
   FOREIGN KEY (TransVendaID) REFERENCES TransVenda(TransVendaID),
@@ -171,7 +168,7 @@ CREATE TABLE ClienteCompra
 
 CREATE TABLE ClienteVende
 (
-  TransVendaID INT NOT NULL,
+  TransVendaID CHAR(7) NOT NULL,
   ClienteCPF CHAR(11) NOT NULL,
   PRIMARY KEY (TransVendaID, ClienteCPF),
   FOREIGN KEY (TransVendaID) REFERENCES TransVenda(TransVendaID),
