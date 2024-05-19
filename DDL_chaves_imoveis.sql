@@ -37,7 +37,7 @@ CREATE TABLE Funcionario
 (
   FuncPrimNome VARCHAR(255) NOT NULL,
   FuncUltimoNome VARCHAR(255) NOT NULL,
-  FuncCPF INT NOT NULL,
+  FuncCPF CHAR(11) NOT NULL,
   FuncDtNasc DATE NOT NULL,
   FuncCargo VARCHAR(100) NOT NULL,
   FuncSalario FLOAT NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE Corretor
 (
   CorretorRegistro VARCHAR(100) NOT NULL,
   OrcamentoMes FLOAT NOT NULL,
-  FuncCPF INT NOT NULL,
+  FuncCPF CHAR(11) NOT NULL,
   PRIMARY KEY (FuncCPF),
   FOREIGN KEY (FuncCPF) REFERENCES Funcionario(FuncCPF),
   UNIQUE (CorretorRegistro)
@@ -62,7 +62,7 @@ CREATE TABLE Regiao
 (
   RegiaoID INT NOT NULL,
   RegiaoNome VARCHAR(100) NOT NULL,
-  FuncCPF INT NOT NULL,
+  FuncCPF CHAR(11) NOT NULL,
   PRIMARY KEY (RegiaoID),
   FOREIGN KEY (FuncCPF) REFERENCES Corretor(FuncCPF)
 );
@@ -76,7 +76,7 @@ CREATE TABLE Cliente
 (
   ClientePrimNome VARCHAR(255) NOT NULL,
   CliUltimoNome VARCHAR(255) NOT NULL,
-  ClienteCPF INT NOT NULL,
+  ClienteCPF CHAR(11) NOT NULL,
   ClienteDtNasc DATE NOT NULL,
   ClienteTelefone VARCHAR(50) NOT NULL,
   EndID INT NOT NULL,
@@ -108,7 +108,7 @@ CREATE TABLE Anuncio
   AnuncioPreco FLOAT NOT NULL,
   AnuncioData DATE NOT NULL,
   ImovelID INT NOT NULL,
-  FuncCPF INT NOT NULL,
+  FuncCPF CHAR(11) NOT NULL,
   PRIMARY KEY (AnuncioID),
   FOREIGN KEY (ImovelID) REFERENCES Imovel(ImovelID),
   FOREIGN KEY (FuncCPF) REFERENCES Corretor(FuncCPF)
@@ -122,8 +122,8 @@ CREATE TABLE Contato
   ContatoNome VARCHAR(255) NOT NULL,
   ContatoTelefone VARCHAR(100) NOT NULL,
   DtContato DATE NOT NULL,
-  FuncCPF INT NOT NULL,
-  ClienteCPF INT,
+  FuncCPF CHAR(11) NOT NULL,
+  ClienteCPF CHAR(11),
   ImovelID INT,
   PRIMARY KEY (ContatoID, FuncCPF, ClienteCPF, ImovelID),
   FOREIGN KEY (FuncCPF) REFERENCES Funcionario(FuncCPF),
@@ -137,7 +137,7 @@ CREATE TABLE TransVenda
   TransVendaValor FLOAT NOT NULL,
   TransVendaData DATE NOT NULL,
   TransComissao FLOAT NOT NULL,
-  FuncCPF INT NOT NULL,
+  FuncCPF CHAR(11) NOT NULL,
   PRIMARY KEY (TransVendaID),
   FOREIGN KEY (FuncCPF) REFERENCES Corretor(FuncCPF)
 );
@@ -145,7 +145,7 @@ CREATE TABLE TransVenda
 CREATE TABLE CliPropriedade
 (
   ImovelID INT NOT NULL,
-  ClienteCPF INT NOT NULL,
+  ClienteCPF CHAR(11) NOT NULL,
   PRIMARY KEY (ImovelID, ClienteCPF),
   FOREIGN KEY (ImovelID) REFERENCES Imovel(ImovelID),
   FOREIGN KEY (ClienteCPF) REFERENCES Cliente(ClienteCPF)
@@ -163,7 +163,7 @@ CREATE TABLE ImovelTransacao
 CREATE TABLE ClienteCompra
 (
   TransVendaID INT NOT NULL,
-  ClienteCPF INT NOT NULL,
+  ClienteCPF CHAR(11) NOT NULL,
   PRIMARY KEY (TransVendaID, ClienteCPF),
   FOREIGN KEY (TransVendaID) REFERENCES TransVenda(TransVendaID),
   FOREIGN KEY (ClienteCPF) REFERENCES Cliente(ClienteCPF)
@@ -172,7 +172,7 @@ CREATE TABLE ClienteCompra
 CREATE TABLE ClienteVende
 (
   TransVendaID INT NOT NULL,
-  ClienteCPF INT NOT NULL,
+  ClienteCPF CHAR(11) NOT NULL,
   PRIMARY KEY (TransVendaID, ClienteCPF),
   FOREIGN KEY (TransVendaID) REFERENCES TransVenda(TransVendaID),
   FOREIGN KEY (ClienteCPF) REFERENCES Cliente(ClienteCPF)
