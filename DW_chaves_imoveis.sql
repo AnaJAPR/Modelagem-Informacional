@@ -27,12 +27,14 @@ CREATE TABLE Anuncio
 (
   AnuncioKey VARCHAR NOT NULL,
   AnuncioPreco MONEY NOT NULL,
+  ImovelID CHAR(7) NOT NULL,
   PRIMARY KEY (AnuncioKey)
 );
 
 CREATE TABLE Endereco
 (
   EnderecoKey VARCHAR NOT NULL,
+  EndID CHAR(7) NOT NULL,
   NmLogradouro VARCHAR(100) NOT NULL,
   EndBairro VARCHAR(100) NOT NULL,
   CEPMunicipio VARCHAR(40) NOT NULL,

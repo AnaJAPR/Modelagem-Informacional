@@ -36,7 +36,8 @@ FROM oper_chaves_imoveis.Funcionario f
 INSERT INTO Anuncio
 SELECT 
 	gen_random_uuid(),
-	a.AnuncioPreco
+	a.AnuncioPreco,
+	i.ImovelID
 FROM oper_chaves_imoveis.Imovel i
 	INNER JOIN oper_chaves_imoveis.Anuncio a ON a.ImovelID = i.ImovelID;
 
@@ -44,6 +45,7 @@ FROM oper_chaves_imoveis.Imovel i
 INSERT INTO Endereco
 SELECT 
 	gen_random_uuid(),
+	e.EndID,
 	c.NmLogradouro,
 	e.EndBairro,
 	c.CEP,
@@ -79,21 +81,20 @@ SELECT
 	dwcli.ClienteKey
 FROM 
 	oper_chaves_imoveis.TransVenda t 
-	LEFT JOIN oper_chaves_imoveis.ImovelTransacao it ON t.TransVendaID = it.TransVendaID
-	LEFT JOIN oper_chaves_imoveis.Imovel i ON it.ImovelID = i.ImovelID
-	LEFT JOIN oper_chaves_imoveis.Regiao r ON i.RegiaoID = r.RegiaoID
-	LEFT JOIN oper_chaves_imoveis.Corretor c ON t.FuncCPF = c.FuncCPF
-	LEFT JOIN oper_chaves_imoveis.Funcionario f ON c.FuncCPF = f.FuncCPF
-	LEFT JOIN oper_chaves_imoveis.Anuncio a ON a.ImovelID = i.ImovelID AND a.FuncCPF = c.FuncCPF
-	LEFT JOIN oper_chaves_imoveis.Endereco e ON i.EndID = e.EndID
-	LEFT JOIN oper_chaves_imoveis.ClienteVende cv ON cv.TransVendaID = t.TransVendaID
-	LEFT JOIN oper_chaves_imoveis.Cliente cli_vende ON cv.ClienteCPF = cli_vende.ClienteCPF
-	LEFT JOIN oper_chaves_imoveis.ClienteCompra cc ON cc.TransVendaID = t.TransVendaID
-	LEFT JOIN oper_chaves_imoveis.Cliente cli_compra ON cc.ClienteCPF = cli_compra.ClienteCPF
-	LEFT JOIN Calendario dwcal ON dwcal.DataCompleta=cast(t.TransVendaData as date)
-	LEFT JOIN Corretor dwcor ON dwcor.FuncCPF = c.FuncCPF
-	LEFT JOIN Anuncio dwan ON dwan.AnuncioKey = a.AnuncioID
-	LEFT JOIN Endereco dwend ON dwend.EnderecoKey = e.EndID
-	LEFT JOIN Cliente dwcli ON dwcli.CliComCPF = cli_compra.ClienteCPF AND dwcli.CliVenCPF = cli_vende.ClienteCPF;
-
+	INNER JOIN oper_chaves_imoveis.ImovelTransacao it ON t.TransVendaID = it.TransVendaID
+	INNER JOIN oper_chaves_imoveis.Imovel i ON it.ImovelID = i.ImovelID
+	INNER JOIN oper_chaves_imoveis.Regiao r ON i.RegiaoID = r.RegiaoID
+	INNER JOIN oper_chaves_imoveis.Corretor c ON t.FuncCPF = c.FuncCPF
+	INNER JOIN oper_chaves_imoveis.Funcionario f ON c.FuncCPF = f.FuncCPF
+	INNER JOIN oper_chaves_imoveis.Anuncio a ON a.ImovelID = i.ImovelID AND a.FuncCPF = c.FuncCPF
+	INNER JOIN oper_chaves_imoveis.Endereco e ON i.EndID = e.EndID
+	INNER JOIN oper_chaves_imoveis.ClienteVende cv ON cv.TransVendaID = t.TransVendaID
+	INNER JOIN oper_chaves_imoveis.Cliente cli_vende ON cv.ClienteCPF = cli_vende.ClienteCPF
+	INNER JOIN oper_chaves_imoveis.ClienteCompra cc ON cc.TransVendaID = t.TransVendaID
+	INNER JOIN oper_chaves_imoveis.Cliente cli_compra ON cc.ClienteCPF = cli_compra.ClienteCPF
+	INNER JOIN Calendario dwcal ON dwcal.DataCompleta=cast(t.TransVendaData as date)
+	INNER JOIN Corretor dwcor ON dwcor.FuncCPF = c.FuncCPF
+	INNER JOIN Anuncio dwan ON dwan.ImovelID = a.ImovelID
+	INNER JOIN Endereco dwend ON dwend.EndID = e.EndID
+	INNER JOIN Cliente dwcli ON dwcli.CliComCPF = cli_compra.ClienteCPF AND dwcli.CliVenCPF = cli_vende.ClienteCPF;
 
