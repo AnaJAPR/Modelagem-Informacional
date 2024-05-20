@@ -1,3 +1,5 @@
+SET search_path=oper_chaves_imoveis;
+
 -- Insert into UF
 INSERT INTO UF (UF, UFEstadoNome) VALUES
 ('SP', 'São Paulo'),
