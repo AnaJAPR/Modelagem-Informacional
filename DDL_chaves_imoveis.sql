@@ -1,5 +1,5 @@
 -- Remove o antigo se existia
-drop schema oper_chaves_imoveis cascade;
+drop schema if exists oper_chaves_imoveis cascade;
 create schema oper_chaves_imoveis;
 SET search_path=oper_chaves_imoveis;
 
