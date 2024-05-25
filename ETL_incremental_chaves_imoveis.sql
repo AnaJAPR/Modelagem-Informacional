@@ -3,7 +3,7 @@ CREATE SCHEMA audit;
 
 SET search_path=audit;
 
-CREATE TABLE audit.historico_mudancas_zagi (
+CREATE TABLE audit.historico_mudancas_chaves_imoveis (
     schema_name TEXT NOT NULL,
     table_name TEXT NOT NULL,
     user_name TEXT,
@@ -25,7 +25,7 @@ BEGIN
     IF (TG_OP = 'UPDATE') THEN
         v_old_data := ROW(OLD.*);
         v_new_data := ROW(NEW.*);
-        INSERT INTO audit.historico_mudancas_zagi (
+        INSERT INTO audit.historico_mudancas_chaves_imoveis (
             schema_name,
             table_name,
             user_name,
@@ -46,7 +46,7 @@ BEGIN
         RETURN NEW;
     ELSIF (TG_OP = 'DELETE') THEN
         v_old_data := ROW(OLD.*);
-        INSERT INTO audit.historico_mudancas_zagi (
+        INSERT INTO audit.historico_mudancas_chaves_imoveis (
             schema_name,
             table_name,
             user_name,
@@ -65,7 +65,7 @@ BEGIN
         RETURN OLD;
     ELSIF (TG_OP = 'INSERT') THEN
         v_new_data := ROW(NEW.*);
-        INSERT INTO audit.historico_mudancas_zagi (
+        INSERT INTO audit.historico_mudancas_chaves_imoveis (
             schema_name,
             table_name,
             user_name,
