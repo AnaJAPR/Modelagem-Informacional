@@ -76,7 +76,19 @@ INSERT INTO Regiao (RegiaoID, RegiaoNome, FuncCPF) VALUES
 ('RE0007', 'Norte de Florianópolis', '78901234567'),
 ('RE0008', 'Centro de Porto Alegre', '89012345678'),
 ('RE0009', 'Zona Norte GO', '90123456789'),
-('RE0010', 'Leste de Recife', '12345678910');
+('RE0010', 'Leste de Recife', '12345678910'),
+--- ### NOVOS DADOS
+('RE0011', 'Noroeste de Fortaleza', '12345678901'),
+('RE0012', 'Centro de Manaus', '23456789012'),
+('RE0013', 'Sul de Brasília', '34567890123'),
+('RE0014', 'Centro de Belém', '45678901234'),
+('RE0015', 'Leste de Cuiabá', '56789012345'),
+('RE0016', 'Oeste de Natal', '67890123456'),
+('RE0017', 'Norte de João Pessoa', '78901234567'),
+('RE0018', 'Sul de Teresina', '89012345678'),
+('RE0019', 'Centro de São Luís', '90123456789'),
+('RE0020', 'Oeste de Aracaju', '12345678910');
+
 
 -- Insert into Cliente
 INSERT INTO Cliente (ClientePrimNome, CliUltimoNome, ClienteCPF, ClienteDtNasc, ClienteTelefone, EndID) VALUES
@@ -89,7 +101,19 @@ INSERT INTO Cliente (ClientePrimNome, CliUltimoNome, ClienteCPF, ClienteDtNasc, 
 ('Henrique', 'Ferreira', '70938475642', '1978-09-15', '48987654321', 'EN0007'),
 ('Larissa', 'Garcia', '80938475643', '1992-05-05', '51987654321', 'EN0008'),
 ('Paulo', 'Nogueira', '90938475644', '1965-07-20', '62987654321', 'EN0009'),
-('Aline', 'Barros', '10093847564', '1973-01-30', '81987654321', 'EN0010');
+('Aline', 'Barros', '10093847564', '1973-01-30', '81987654321', 'EN0010'),
+-- ### NOVOS CLINTES COMPRADORES
+('Carlos', 'Silva', '11093847561', '1988-01-10', '12987654321', 'EN0011'),
+('Ana', 'Pereira', '12093847562', '1991-04-15', '22987654321', 'EN0012'),
+('João', 'Santos', '13093847563', '1982-07-22', '32987654321', 'EN0013'),
+('Mariana', 'Lima', '14093847564', '1994-12-05', '42987654321', 'EN0014'),
+('Pedro', 'Melo', '15093847565', '1976-02-19', '52987654321', 'EN0015'),
+('Camila', 'Alves', '16093847566', '1989-06-14', '62987654321', 'EN0016'),
+('Eduardo', 'Ribeiro', '17093847567', '1981-11-25', '72987654321', 'EN0017'),
+('Patricia', 'Souza', '18093847568', '1993-08-07', '82987654321', 'EN0018'),
+('Gustavo', 'Costa', '19093847569', '1978-10-13', '92987654321', 'EN0019'),
+('Bianca', 'Fernandes', '20093847560', '1986-03-18', '02987654321', 'EN0020');
+
 
 -- Insert into Imovel
 INSERT INTO Imovel (ImovelID, ImovelTipo, ImovelQtdQuartos, ImovelQtdBanheiros, ImovelQtdGaragem, ImovelM2, ImovelValor, ImovelVazio, RegiaoID, EndID) VALUES
@@ -171,16 +195,17 @@ INSERT INTO ImovelTransacao (ImovelID, TransVendaID) VALUES
 
 -- Insert into ClienteCompra
 INSERT INTO ClienteCompra (TransVendaID, ClienteCPF) VALUES
-('TV0001', '10293847566'),
-('TV0002', '20938475647'),
-('TV0003', '30938475648'),
-('TV0004', '40938475649'),
-('TV0005', '50938475640'),
-('TV0006', '60938475641'),
-('TV0007', '70938475642'),
-('TV0008', '80938475643'),
-('TV0009', '90938475644'),
-('TV0010', '10093847564');
+-- ### NOVOS DADOS
+('TV0001', '12345678901'),
+('TV0002', '23456789012'),
+('TV0003', '34567890123'),
+('TV0004', '45678901234'),
+('TV0005', '56789012345'),
+('TV0006', '67890123456'),
+('TV0007', '78901234567'),
+('TV0008', '89012345678'),
+('TV0009', '90123456789'),
+('TV0010', '12345678910');
 
 -- Insert into ClienteVende
 INSERT INTO ClienteVende (TransVendaID, ClienteCPF) VALUES
@@ -205,5 +230,16 @@ UPDATE Endereco SET RegiaoID = 'RE0007' WHERE EndID = 'EN0007';
 UPDATE Endereco SET RegiaoID = 'RE0008' WHERE EndID = 'EN0008';
 UPDATE Endereco SET RegiaoID = 'RE0009' WHERE EndID = 'EN0009';
 UPDATE Endereco SET RegiaoID = 'RE0010' WHERE EndID = 'EN0010';
+-- ### NOVOS DADOS
+UPDATE Endereco SET RegiaoID = 'RE0011' WHERE EndID = 'EN0011';
+UPDATE Endereco SET RegiaoID = 'RE0012' WHERE EndID = 'EN0012';
+UPDATE Endereco SET RegiaoID = 'RE0013' WHERE EndID = 'EN0013';
+UPDATE Endereco SET RegiaoID = 'RE0014' WHERE EndID = 'EN0014';
+UPDATE Endereco SET RegiaoID = 'RE0015' WHERE EndID = 'EN0015';
+UPDATE Endereco SET RegiaoID = 'R00016' WHERE EndID = 'EN0016';
+UPDATE Endereco SET RegiaoID = 'RE0017' WHERE EndID = 'EN0017';
+UPDATE Endereco SET RegiaoID = 'RE0018' WHERE EndID = 'EN0018';
+UPDATE Endereco SET RegiaoID = 'RE0019' WHERE EndID = 'EN0019';
+UPDATE Endereco SET RegiaoID = 'RE0020' WHERE EndID = 'EN0020';
 
 ALTER TABLE Endereco ALTER COLUMN RegiaoID SET NOT NULL;
