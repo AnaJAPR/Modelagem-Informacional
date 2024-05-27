@@ -38,8 +38,8 @@ SELECT
 	gen_random_uuid(),
 	a.AnuncioPreco,
 	i.ImovelID
-FROM oper_chaves_imoveis.Imovel i
-	INNER JOIN oper_chaves_imoveis.Anuncio a ON a.ImovelID = i.ImovelID;
+FROM oper_chaves_imoveis.Anuncio a
+	INNER JOIN oper_chaves_imoveis.Imovel i ON i.ImovelID = a.ImovelID;
 
 -- Insert into Endereco
 INSERT INTO Endereco
@@ -50,27 +50,20 @@ SELECT
 	e.EndBairro,
 	c.CEP,
 	c.UF
-FROM oper_chaves_imoveis.Imovel i 
-	INNER JOIN oper_chaves_imoveis.Endereco e ON i.EndID = e.EndID
+FROM oper_chaves_imoveis.Endereco e
 	INNER JOIN oper_chaves_imoveis.CEP c ON e.CEP = c.CEP;
 
 
 -- Insert into Cliente
-INSERT INTO Cliente (ClienteKey, CliComNome, CliVenNome, CliComCPF, CliVenCPF)
+INSERT INTO Cliente (ClienteKey, CliNome, CliCPF)
 SELECT 
 	gen_random_uuid(),
-	cli_compra.ClientePrimNome || ' ' || cli_compra.CliUltimoNome,
-	cli_vende.ClientePrimNome || ' ' || cli_vende.CliUltimoNome,
-	cli_compra.ClienteCPF,
-	cli_vende.ClienteCPF
-FROM oper_chaves_imoveis.TransVenda t 
-	INNER JOIN oper_chaves_imoveis.ClienteVende cv ON cv.TransVendaID = t.TransVendaID
-	INNER JOIN oper_chaves_imoveis.Cliente cli_vende ON cv.ClienteCPF = cli_vende.ClienteCPF
-	INNER JOIN oper_chaves_imoveis.ClienteCompra cc ON cc.TransVendaID = t.TransVendaID
-	INNER JOIN oper_chaves_imoveis.Cliente cli_compra ON cc.ClienteCPF = cli_compra.ClienteCPF;
+	cli.ClientePrimNome || ' ' || cli.CliUltimoNome,
+	cli.ClienteCPF
+FROM oper_chaves_imoveis.Cliente cli;
 
 -- Insert into Receita
-INSERT INTO Receita (TransComissao, TransVendaID, CalendarioKey, CorretorKey, AnuncioKey, EnderecoKey, ClienteKey)
+INSERT INTO Receita (TransComissao, TransVendaID, CalendarioKey, CorretorKey, AnuncioKey, EnderecoKey, ClienteComKey, ClienteVenKey)
 SELECT 
 	t.TransComissao,
 	t.TransVendaID,
@@ -78,7 +71,8 @@ SELECT
 	dwcor.CorretorKey,
 	dwan.AnuncioKey,
 	dwend.EnderecoKey,
-	dwcli.ClienteKey
+	dwclicom.ClienteKey AS ClienteComKey,
+	dwcliven.ClienteKey AS ClienteVenKey
 FROM 
 	oper_chaves_imoveis.TransVenda t 
 	INNER JOIN oper_chaves_imoveis.ImovelTransacao it ON t.TransVendaID = it.TransVendaID
@@ -96,5 +90,6 @@ FROM
 	INNER JOIN Corretor dwcor ON dwcor.FuncCPF = c.FuncCPF
 	INNER JOIN Anuncio dwan ON dwan.ImovelID = a.ImovelID
 	INNER JOIN Endereco dwend ON dwend.EndID = e.EndID
-	INNER JOIN Cliente dwcli ON dwcli.CliComCPF = cli_compra.ClienteCPF AND dwcli.CliVenCPF = cli_vende.ClienteCPF;
+	INNER JOIN Cliente dwclicom ON dwclicom.CliCPF = cli_compra.ClienteCPF
+	INNER JOIN Cliente dwcliven ON dwcliven.CliCPF = cli_vende.ClienteCPF;
 

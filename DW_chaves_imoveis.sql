@@ -45,10 +45,8 @@ CREATE TABLE Endereco
 CREATE TABLE Cliente
 (
   ClienteKey VARCHAR NOT NULL,
-  CliComNome VARCHAR(50) NOT NULL,
-  CliVenNome VARCHAR(50) NOT NULL,
-  CliComCPF CHAR(11) NOT NULL,
-  CliVenCPF CHAR(11) NOT NULL,
+  CliNome VARCHAR(50) NOT NULL,
+  CliCPF CHAR(11) NOT NULL,
   PRIMARY KEY (ClienteKey)
 );
 
@@ -60,11 +58,13 @@ CREATE TABLE Receita
   CorretorKey VARCHAR NOT NULL,
   AnuncioKey VARCHAR NOT NULL,
   EnderecoKey VARCHAR NOT NULL,
-  ClienteKey VARCHAR NOT NULL,
+  ClienteComKey VARCHAR NOT NULL,
+  ClienteVenKey VARCHAR NOT NULL,
   PRIMARY KEY (TransVendaID),
   FOREIGN KEY (CalendarioKey) REFERENCES Calendario(CalendarioKey),
   FOREIGN KEY (CorretorKey) REFERENCES Corretor(CorretorKey),
   FOREIGN KEY (AnuncioKey) REFERENCES Anuncio(AnuncioKey),
   FOREIGN KEY (EnderecoKey) REFERENCES Endereco(EnderecoKey),
-  FOREIGN KEY (ClienteKey) REFERENCES Cliente(ClienteKey)
+  FOREIGN KEY (ClienteComKey) REFERENCES Cliente(ClienteKey),
+  FOREIGN KEY (ClienteVenKey) REFERENCES Cliente(ClienteKey)
 );
