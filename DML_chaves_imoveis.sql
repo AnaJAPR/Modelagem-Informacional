@@ -37,7 +37,7 @@ INSERT INTO Endereco (EndID, EndNumero, EndComplemento, EndBairro, CEP, RegiaoID
 ('EN0007', 707, NULL, 'Beira Mar', '78901-234', NULL),
 ('EN0008', 808, 'Casa 20', 'Moinhos de Vento', '89012-345', NULL),
 ('EN0009', 909, 'Apto 909', 'Setor Bueno', '90123-456', NULL),
-('EN0010', 1010, 'Casa 5', 'Boa Viagem', '01234-567', NULL);
+('EN0010', 1010, 'Casa 5', 'Boa Viagem', '01234-567', NULL),
 -- ### NOVOS DADOS
 ('EN0011', 111, 'Apto 11', 'Copacabana', '12345-111', NULL),
 ('EN0012', 222, 'Casa 22', 'Ipanema', '22222-222', NULL),
