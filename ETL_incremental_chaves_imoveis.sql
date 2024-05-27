@@ -334,3 +334,6 @@ EXCEPT
         EnderecoKey,
         ClienteKey
     FROM dw_chaves_imoveis.Receita;
+
+
+    -- CRIAR EXEMPLO DE CONSULTA NA Receita
