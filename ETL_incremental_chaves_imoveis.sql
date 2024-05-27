@@ -273,7 +273,7 @@ FOR EACH ROW EXECUTE PROCEDURE audit.ins_Cliente_func();
 -- ### parei na linha 241 do zagi-ETL_incremental.sql
 
 
-INSERT INTO Calendario
+INSERT INTO dw_chaves_imoveis.Calendario
 SELECT 
 	gen_random_uuid(),
 	a.DataCompleta,
@@ -292,12 +292,12 @@ FROM (
 		extract(year from t.TransVendaData) as Ano
 	FROM 
 		oper_chaves_imoveis.TransVenda t 
-	WHERE cast(t.TransVendaData as date) not in (select DataCompleta from Calendario)
+	WHERE cast(t.TransVendaData as date) not in (select DataCompleta from dw_chaves_imoveis.Calendario)
 	) as a;
 
 
 
-INSERT INTO Receita (TransComissao, TransVendaID, CalendarioKey, CorretorKey, AnuncioKey, EnderecoKey, ClienteKey)
+INSERT INTO dw_chaves_imoveis.Receita (TransComissao, TransVendaID, CalendarioKey, CorretorKey, AnuncioKey, EnderecoKey, ClienteKey)
 SELECT 
 	t.TransComissao,
 	t.TransVendaID,
@@ -319,11 +319,11 @@ FROM
 	INNER JOIN oper_chaves_imoveis.Cliente cli_vende ON cv.ClienteCPF = cli_vende.ClienteCPF
 	INNER JOIN oper_chaves_imoveis.ClienteCompra cc ON cc.TransVendaID = t.TransVendaID
 	INNER JOIN oper_chaves_imoveis.Cliente cli_compra ON cc.ClienteCPF = cli_compra.ClienteCPF
-	INNER JOIN Calendario dwcal ON dwcal.DataCompleta=cast(t.TransVendaData as date)
-	INNER JOIN Corretor dwcor ON dwcor.FuncCPF = c.FuncCPF
-	INNER JOIN Anuncio dwan ON dwan.ImovelID = a.ImovelID
-	INNER JOIN Endereco dwend ON dwend.EndID = e.EndID
-	INNER JOIN Cliente dwcli ON dwcli.CliComCPF = cli_compra.ClienteCPF AND dwcli.CliVenCPF = cli_vende.ClienteCPF;
+	INNER JOIN dw_chaves_imoveis.Calendario dwcal ON dwcal.DataCompleta=cast(t.TransVendaData as date)
+	INNER JOIN dw_chaves_imoveis.Corretor dwcor ON dwcor.FuncCPF = c.FuncCPF
+	INNER JOIN dw_chaves_imoveis.Anuncio dwan ON dwan.ImovelID = a.ImovelID
+	INNER JOIN dw_chaves_imoveis.Endereco dwend ON dwend.EndID = e.EndID
+	INNER JOIN dw_chaves_imoveis.Cliente dwcli ON dwcli.CliComCPF = cli_compra.ClienteCPF AND dwcli.CliVenCPF = cli_vende.ClienteCPF
 EXCEPT
     SELECT 
         TransComissao,
