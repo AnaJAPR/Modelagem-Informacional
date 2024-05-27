@@ -24,7 +24,18 @@ INSERT INTO CEP (TipoLogradouro, CEP, CEPMunicipio, NmLogradouro, UF) VALUES
 ('Viela', '78901-234', 'Florianópolis', 'Lua Nova', 'SC'),
 ('Rodovia', '89012-345', 'Porto Alegre', 'Sol Poente', 'RS'),
 ('Largo', '90123-456', 'Goiânia', 'Goiás Central', 'GO'),
-('Via', '01234-567', 'Recife', 'Recife Antigo', 'PB');
+('Via', '01234-567', 'Recife', 'Recife Antigo', 'PB'),
+--- ### NOVOS DADOS TESTE
+('Rua', '12345-111', 'São Paulo', 'Paulista', 'SP'),
+('Avenida', '22222-222', 'Rio de Janeiro', 'Atlântica', 'RJ'),
+('Travessa', '33333-333', 'Belo Horizonte', 'Amazonas', 'MG'),
+('Praça', '00000-000', 'Vitória', 'Mestre Álvaro', 'ES'),
+('Alameda', '44444-444', 'Salvador', 'Oceânica', 'BA'),
+('Estrada', '55555-555', 'Curitiba', 'Flores', 'PR'),
+('Viela', '66666-666', 'Florianópolis', 'Lua Nova', 'SC'),
+('Rodovia', '77777-777', 'Porto Alegre', 'Sol Poente', 'RS'),
+('Largo', '88888-888', 'Goiânia', 'Goiás Central', 'GO'),
+('Via', '99999-999', 'Recife', 'Recife Antigo', 'PB');
 
 -- Insert into Endereco
 INSERT INTO Endereco (EndID, EndNumero, EndComplemento, EndBairro, CEP, RegiaoID) VALUES
@@ -87,7 +98,7 @@ INSERT INTO Regiao (RegiaoID, RegiaoNome, FuncCPF) VALUES
 ('RE0007', 'Norte de Florianópolis', '78901234567'),
 ('RE0008', 'Centro de Porto Alegre', '89012345678'),
 ('RE0009', 'Zona Norte GO', '90123456789'),
-('RE0010', 'Leste de Recife', '12345678910'),
+('RE0010', 'Leste de Recife', '12345678910');
 --- ### NOVOS DADOS
 -- ('RE0011', 'Noroeste de Fortaleza', '12345678901'),
 -- ('RE0012', 'Centro de Manaus', '23456789012'),
