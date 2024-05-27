@@ -38,6 +38,17 @@ INSERT INTO Endereco (EndID, EndNumero, EndComplemento, EndBairro, CEP, RegiaoID
 ('EN0008', 808, 'Casa 20', 'Moinhos de Vento', '89012-345', NULL),
 ('EN0009', 909, 'Apto 909', 'Setor Bueno', '90123-456', NULL),
 ('EN0010', 1010, 'Casa 5', 'Boa Viagem', '01234-567', NULL);
+-- ### NOVOS DADOS
+('EN0011', 111, 'Apto 11', 'Copacabana', '12345-111', NULL),
+('EN0012', 222, 'Casa 22', 'Ipanema', '22222-222', NULL),
+('EN0013', 333, 'Bloco C', 'Leblon', '33333-333', NULL),
+('EN0014', 444, NULL, 'Botafogo', '44444-444', NULL),
+('EN0015', 555, 'Apto 55', 'Gávea', '55555-555', NULL),
+('EN0016', 666, 'Casa 66', 'Tijuca', '66666-666', NULL),
+('EN0017', 777, 'Apto 77', 'Laranjeiras', '77777-777', NULL),
+('EN0018', 888, NULL, 'Santa Teresa', '88888-888', NULL),
+('EN0019', 999, 'Casa 99', 'Flamengo', '99999-999', NULL),
+('EN0020', 1010, 'Apto 1010', 'Barra da Tijuca', '00000-000', NULL);
 
 -- Insert into Funcionario
 INSERT INTO Funcionario (FuncPrimNome, FuncUltimoNome, FuncCPF, FuncDtNasc, FuncCargo, FuncSalario, EndID) VALUES
@@ -78,20 +89,21 @@ INSERT INTO Regiao (RegiaoID, RegiaoNome, FuncCPF) VALUES
 ('RE0009', 'Zona Norte GO', '90123456789'),
 ('RE0010', 'Leste de Recife', '12345678910'),
 --- ### NOVOS DADOS
-('RE0011', 'Noroeste de Fortaleza', '12345678901'),
-('RE0012', 'Centro de Manaus', '23456789012'),
-('RE0013', 'Sul de Brasília', '34567890123'),
-('RE0014', 'Centro de Belém', '45678901234'),
-('RE0015', 'Leste de Cuiabá', '56789012345'),
-('RE0016', 'Oeste de Natal', '67890123456'),
-('RE0017', 'Norte de João Pessoa', '78901234567'),
-('RE0018', 'Sul de Teresina', '89012345678'),
-('RE0019', 'Centro de São Luís', '90123456789'),
-('RE0020', 'Oeste de Aracaju', '12345678910');
+-- ('RE0011', 'Noroeste de Fortaleza', '12345678901'),
+-- ('RE0012', 'Centro de Manaus', '23456789012'),
+-- ('RE0013', 'Sul de Brasília', '34567890123'),
+-- ('RE0014', 'Centro de Belém', '45678901234'),
+-- ('RE0015', 'Leste de Cuiabá', '56789012345'),
+-- ('RE0016', 'Oeste de Natal', '67890123456'),
+-- ('RE0017', 'Norte de João Pessoa', '78901234567'),
+-- ('RE0018', 'Sul de Teresina', '89012345678'),
+-- ('RE0019', 'Centro de São Luís', '90123456789'),
+-- ('RE0020', 'Oeste de Aracaju', '12345678910');
 
 
 -- Insert into Cliente
 INSERT INTO Cliente (ClientePrimNome, CliUltimoNome, ClienteCPF, ClienteDtNasc, ClienteTelefone, EndID) VALUES
+--- ### CLIENTES VENDEDORES
 ('Roberto', 'Campos', '10293847566', '1985-11-15', '11987654321', 'EN0001'),
 ('Luciana', 'Prado', '20938475647', '1990-06-25', '21987654321', 'EN0002'),
 ('Márcio', 'Souza', '30938475648', '1975-02-10', '31987654321', 'EN0003'),
@@ -231,15 +243,15 @@ UPDATE Endereco SET RegiaoID = 'RE0008' WHERE EndID = 'EN0008';
 UPDATE Endereco SET RegiaoID = 'RE0009' WHERE EndID = 'EN0009';
 UPDATE Endereco SET RegiaoID = 'RE0010' WHERE EndID = 'EN0010';
 -- ### NOVOS DADOS
-UPDATE Endereco SET RegiaoID = 'RE0011' WHERE EndID = 'EN0011';
-UPDATE Endereco SET RegiaoID = 'RE0012' WHERE EndID = 'EN0012';
-UPDATE Endereco SET RegiaoID = 'RE0013' WHERE EndID = 'EN0013';
-UPDATE Endereco SET RegiaoID = 'RE0014' WHERE EndID = 'EN0014';
-UPDATE Endereco SET RegiaoID = 'RE0015' WHERE EndID = 'EN0015';
-UPDATE Endereco SET RegiaoID = 'R00016' WHERE EndID = 'EN0016';
-UPDATE Endereco SET RegiaoID = 'RE0017' WHERE EndID = 'EN0017';
-UPDATE Endereco SET RegiaoID = 'RE0018' WHERE EndID = 'EN0018';
-UPDATE Endereco SET RegiaoID = 'RE0019' WHERE EndID = 'EN0019';
-UPDATE Endereco SET RegiaoID = 'RE0020' WHERE EndID = 'EN0020';
+-- UPDATE Endereco SET RegiaoID = 'RE0011' WHERE EndID = 'EN0011';
+-- UPDATE Endereco SET RegiaoID = 'RE0012' WHERE EndID = 'EN0012';
+-- UPDATE Endereco SET RegiaoID = 'RE0013' WHERE EndID = 'EN0013';
+-- UPDATE Endereco SET RegiaoID = 'RE0014' WHERE EndID = 'EN0014';
+-- UPDATE Endereco SET RegiaoID = 'RE0015' WHERE EndID = 'EN0015';
+-- UPDATE Endereco SET RegiaoID = 'R00016' WHERE EndID = 'EN0016';
+-- UPDATE Endereco SET RegiaoID = 'RE0017' WHERE EndID = 'EN0017';
+-- UPDATE Endereco SET RegiaoID = 'RE0018' WHERE EndID = 'EN0018';
+-- UPDATE Endereco SET RegiaoID = 'RE0019' WHERE EndID = 'EN0019';
+-- UPDATE Endereco SET RegiaoID = 'RE0020' WHERE EndID = 'EN0020';
 
 ALTER TABLE Endereco ALTER COLUMN RegiaoID SET NOT NULL;
