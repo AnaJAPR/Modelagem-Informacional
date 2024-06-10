@@ -1,17 +1,33 @@
 SET search_path=oper_chaves_imoveis;
 
--- Insert into UF
-INSERT INTO UF (UF, UFEstadoNome) VALUES
-('SP', 'São Paulo'),
-('RJ', 'Rio de Janeiro'),
-('MG', 'Minas Gerais'),
-('ES', 'Espírito Santo'),
-('BA', 'Bahia'),
-('PR', 'Paraná'),
-('SC', 'Santa Catarina'),
-('RS', 'Rio Grande do Sul'),
-('GO', 'Goiás'),
-('PB', 'Pernambuco');
+INSERT INTO UF (UF, UFEstadoNome, IDH) VALUES
+('DF', 'Distrito Federal', 0.814),
+('SP', 'São Paulo', 0.809),
+('SC', 'Santa Catarina', 0.798),
+('MG', 'Minas Gerais', 0.774),
+('ES', 'Espírito Santo', 0.771),
+('RS', 'Rio Grande do Sul', 0.769),
+('PR', 'Paraná', 0.762),
+('RJ', 'Rio de Janeiro', 0.742),
+('MS', 'Mato Grosso do Sul', 0.737),
+('GO', 'Goiás', 0.736),
+('MT', 'Mato Grosso', 0.736),
+('CE', 'Ceará', 0.734),
+('TO', 'Tocantins', 0.731),
+('RN', 'Rio Grande do Norte', 0.728),
+('PE', 'Pernambuco', 0.719),
+('AC', 'Acre', 0.710),
+('SE', 'Sergipe', 0.702),
+('AM', 'Amazonas', 0.700),
+('RO', 'Rondônia', 0.700),
+('RR', 'Roraima', 0.699),
+('PB', 'Paraíba', 0.698),
+('BA', 'Bahia', 0.691),
+('PA', 'Pará', 0.690),
+('PI', 'Piauí', 0.690),
+('AP', 'Amapá', 0.688),
+('AL', 'Alagoas', 0.684),
+('MA', 'Maranhão', 0.676);
 
 -- Insert into CEP
 INSERT INTO CEP (TipoLogradouro, CEP, CEPMunicipio, NmLogradouro, UF) VALUES

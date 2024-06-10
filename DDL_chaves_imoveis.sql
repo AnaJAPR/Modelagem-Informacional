@@ -8,6 +8,7 @@ CREATE TABLE UF
 (
   UF CHAR(2) NOT NULL,
   UFEstadoNome VARCHAR(20) NOT NULL,
+  IDH NUMERIC(4,3),
   PRIMARY KEY (UF)
 );
 
@@ -32,6 +33,13 @@ CREATE TABLE Endereco
   RegiaoID CHAR(7),
   PRIMARY KEY (EndID),
   FOREIGN KEY (CEP) REFERENCES CEP(CEP)
+);
+
+CREATE TABLE Municipios (
+    MunipID INT PRIMARY KEY AUTO_INCREMENT,
+    RandID INT NOT NULL,
+    MunicipName VARCHAR(255) NOT NULL,
+    IDH DECIMAL(3,3) NOT NULL
 );
 
 -- Create Funcionario after Endereco
