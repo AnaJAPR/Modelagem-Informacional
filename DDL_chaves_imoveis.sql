@@ -35,13 +35,6 @@ CREATE TABLE Endereco
   FOREIGN KEY (CEP) REFERENCES CEP(CEP)
 );
 
-CREATE TABLE Municipios (
-    MunipID INT PRIMARY KEY AUTO_INCREMENT,
-    RandID INT NOT NULL,
-    MunicipName VARCHAR(255) NOT NULL,
-    IDH DECIMAL(3,3) NOT NULL
-);
-
 -- Create Funcionario after Endereco
 CREATE TABLE Funcionario
 (
