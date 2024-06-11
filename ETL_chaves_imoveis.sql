@@ -49,10 +49,11 @@ SELECT
 	c.NmLogradouro,
 	e.EndBairro,
 	c.CEP,
-	c.UF
+	c.UF,
+	u.IDH
 FROM oper_chaves_imoveis.Endereco e
-	INNER JOIN oper_chaves_imoveis.CEP c ON e.CEP = c.CEP;
-
+	INNER JOIN oper_chaves_imoveis.CEP c ON e.CEP = c.CEP
+	INNER JOIN oper_chaves_imoveis.UF u ON u.UF = c.UF;
 
 -- Insert into Cliente
 INSERT INTO Cliente (ClienteKey, CliNome, CliCPF)

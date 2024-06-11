@@ -374,8 +374,8 @@ BEGIN
         -- v_new_data := ROW(NEW.*); ### LINHA REMOVIDA
         
         -- Inserir os dados na tabela de auditoria
-        INSERT INTO audit.ins_Endereco (EndID, EndNumero, EndComplemento, EndBairro, CEP, RegiaoID)
-        VALUES (NEW.EndID, NEW.EndNumero, NEW.EndComplemento, NEW.EndBairro, NEW.CEP, NEW.RegiaoID);
+        INSERT INTO audit.ins_Endereco (EndID, EndNumero, EndComplemento, EndBairro, CEP, RegiaoID, IDH)
+        VALUES (NEW.EndID, NEW.EndNumero, NEW.EndComplemento, NEW.EndBairro, NEW.CEP, NEW.RegiaoID, NEW.IDH);
         
         -- Retornar a linha inserida
         RETURN NEW;
@@ -423,9 +423,11 @@ if (TG_OP = 'INSERT') then
         c.NmLogradouro,
         e.EndBairro,
         c.CEP,
-        c.UF
+        c.UF,
+        u.IDH
     FROM audit.Endereco e
-        INNER JOIN oper_chaves_imoveis.CEP c ON e.CEP = c.CEP;
+        INNER JOIN oper_chaves_imoveis.CEP c ON e.CEP = c.CEP
+        INNER JOIN oper_chaves_imoveis.UF u ON u.UF = c.UF;
     RETURN NEW;
 else
     RAISE WARNING '[AUDIT.IF_MODIFIED_FUNC] - Other action occurred: %, at %',TG_OP,now();
