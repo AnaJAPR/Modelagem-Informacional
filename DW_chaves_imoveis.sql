@@ -39,6 +39,7 @@ CREATE TABLE Endereco
   EndBairro VARCHAR(100) NOT NULL,
   CEPMunicipio VARCHAR(40) NOT NULL,
   UF CHAR(2) NOT NULL,
+  IDH NUMERIC(4,3) NOT NULL, 
   PRIMARY KEY (EnderecoKey)
 );
 
