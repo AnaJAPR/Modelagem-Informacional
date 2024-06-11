@@ -73,10 +73,33 @@ INSERT INTO CEP (TipoLogradouro, CEP, CEPMunicipio, NmLogradouro, UF) VALUES
 ('Avenida', '66178-678', 'Maceió', 'Álvaro Otacílio', 'AL'),
 ('Rodovia', '17789-789', 'Porto Velho', 'Fernandes Lima', 'RO'),
 ('Largo', '28879-870', 'Boa Vista', 'Doutor Antônio', 'RR'),
-('Via', '99789-973', 'Belém', 'Rotary', 'PA');
+('Via', '99789-973', 'Belém', 'Rotary', 'PA'),
+
+('Rua', '24675-503', 'Juazeiro do Norte', 'dos Canários', 'CE'),
+('Viela', '14675-573', 'Natal', 'da Saudade', 'RN'),
+('Travessa', '23958-307', 'Arcoverde', 'das Tulipas', 'PE'),
+('Beco', '10975-278', 'Arauá', 'do Samba', 'SE'),
+('Beco', '44596-409', 'Iranduba', 'da Alegria', 'AM'),
+('Estrada', '54584-898', 'Oiapoque', 'do Silêncio', 'AP'),
+('Alameda', '66594-690', 'Balsas', 'dos Jasmins', 'MA'),
+('Travessa', '17579-539', 'Santa Maria do Suaçuí', 'da Esperança', 'MG'),
+('Largo', '28657-891', 'Londrina', 'da Matriz', 'PR'),
+('Rua', '94569-929', 'Chapecó', 'dos Girassóis', 'SC'),
+
+('Rua', '26575-859', 'Juazeiro do Norte', 'das Borboletas', 'CE'),
+('Alameda', '15652-523', 'Natal', 'das Hortênsias', 'RN'),
+('Travessa', '23493-302', 'Arcoverde', 'das Acácias', 'PE'),
+('Praça', '15680-290', 'Arauá', 'da Harmonia', 'SE'),
+('Alameda', '45769-490', 'Iranduba', 'dos Flamboyants', 'AM'),
+('Estrada', '54752-982', 'Oiapoque', 'das Pedras', 'AP'),
+('Rua', '66475-772', 'Balsas', 'dos Bem-te-vis', 'MA'),
+('Travessa', '17775-980', 'Santa Maria do Suaçuí', 'das Estrelas', 'MG'),
+('Largo', '24675-787', 'Londrina', 'do Sabiá', 'PR'),
+('Alameda', '93759-894', 'Chapecó', 'dos Jacarandás', 'SC');
 
 -- Insert into Endereco
 INSERT INTO Endereco (EndID, EndNumero, EndComplemento, EndBairro, CEP, RegiaoID) VALUES
+-- Endereços para clientes vendedores
 ('EN0001', 101, 'Apto 201', 'Centro', '12345-678', NULL),
 ('EN0002', 202, 'Bloco B', 'Jardim Oceânico', '23456-789', NULL),
 ('EN0003', 303, 'Casa', 'Savassi', '34567-890', NULL),
@@ -89,50 +112,130 @@ INSERT INTO Endereco (EndID, EndNumero, EndComplemento, EndBairro, CEP, RegiaoID
 ('EN0010', 1010, 'Casa 5', 'Boa Viagem', '01234-567', NULL),
 
 ('EN0011', 111, 'Apto 11', 'Copacabana', '12345-111', NULL),
-('EN0012', 222, 'Casa 22', 'Ipanema', '22222-222', NULL),
-('EN0013', 333, 'Bloco C', 'Leblon', '33333-333', NULL),
-('EN0014', 444, NULL, 'Botafogo', '44444-444', NULL),
-('EN0015', 555, 'Apto 55', 'Gávea', '55555-555', NULL),
-('EN0016', 666, 'Casa 66', 'Tijuca', '66666-666', NULL),
-('EN0017', 777, 'Apto 77', 'Laranjeiras', '77777-777', NULL),
-('EN0018', 888, NULL, 'Santa Teresa', '88888-888', NULL),
-('EN0019', 999, 'Casa 99', 'Flamengo', '99999-999', NULL),
+('EN0012', 212, 'Casa 22', 'Ipanema', '22222-222', NULL),
+('EN0013', 313, 'Bloco C', 'Leblon', '33333-333', NULL),
+('EN0014', 414, NULL, 'Botafogo', '44444-444', NULL),
+('EN0015', 515, 'Apto 55', 'Gávea', '55555-555', NULL),
+('EN0016', 616, 'Casa 66', 'Tijuca', '66666-666', NULL),
+('EN0017', 717, 'Apto 77', 'Laranjeiras', '77777-777', NULL),
+('EN0018', 818, NULL, 'Santa Teresa', '88888-888', NULL),
+('EN0019', 919, 'Casa 99', 'Flamengo', '99999-999', NULL),
 ('EN0020', 1110, 'Apto 110', 'Barra da Tijuca', '10000-256', NULL),
--- ### NOVOS DADOS
+
+-- Endereços para clientes compradores
 ('EN0021', 121, 'Apto 203', 'Cabral', '13245-569', NULL),
-('EN0022', 212, 'Casa 32', 'Pinheiros', '21222-523', NULL),
-('EN0023', 313, 'Bloco D', 'Marsilac', '33233-301', NULL),
-('EN0024', 414, NULL, 'Paraíso', '10700-278', NULL),
-('EN0025', 515, 'Apto 57', 'Vila Maria', '44744-478', NULL),
-('EN0026', 616, 'Casa 69', 'Jardim São Luís', '55855-859', NULL),
-('EN0027', 717, 'Apto 78', 'Moema', '66166-678', NULL),
-('EN0028', 818, NULL, 'Anchieta', '17777-789', NULL),
-('EN0029', 919, 'Casa 901', 'Alvorada', '28888-879', NULL),
+('EN0022', 222, 'Casa 32', 'Pinheiros', '21222-523', NULL),
+('EN0023', 323, 'Bloco D', 'Marsilac', '33233-301', NULL),
+('EN0024', 424, NULL, 'Paraíso', '10700-278', NULL),
+('EN0025', 525, 'Apto 57', 'Vila Maria', '44744-478', NULL),
+('EN0026', 626, 'Casa 69', 'Jardim São Luís', '55855-859', NULL),
+('EN0027', 727, 'Apto 78', 'Moema', '66166-678', NULL),
+('EN0028', 828, NULL, 'Anchieta', '17777-789', NULL),
+('EN0029', 929, 'Casa 901', 'Alvorada', '28888-879', NULL),
 ('EN0030', 1210, 'Apto 121', 'Água Branca', '99999-972', NULL),
 
 ('EN0031', 131, 'Apto 225', 'Goiabeiras', '21345-560', NULL),
-('EN0032', 242, 'Casa 39', 'Bonfim', '12122-523', NULL),
-('EN0033', 343, 'Bloco G', 'Castelo Branco', '23233-302', NULL),
-('EN0034', 424, NULL, 'Castanheira', '17000-279', NULL),
-('EN0035', 525, 'Apto 97', 'Grajaú', '44756-479', NULL),
-('EN0036', 626, 'Casa 89', 'Itararé', '55782-986', NULL),
-('EN0037', 727, 'Apto 12', 'Cristo Rei', '66178-678', NULL),
-('EN0038', 828, NULL, 'Coqueiro', '17789-789', NULL),
-('EN0039', 929, 'Casa 31', 'Cidade Nova', '28879-870', NULL),
-('EN0040', 1310, 'Apto 19', 'Cidade Jardim', '99789-973', NULL);
+('EN0032', 232, 'Casa 39', 'Bonfim', '12122-523', NULL),
+('EN0033', 333, 'Bloco G', 'Castelo Branco', '23233-302', NULL),
+('EN0034', 434, NULL, 'Castanheira', '17000-279', NULL),
+('EN0035', 535, 'Apto 97', 'Grajaú', '44756-479', NULL),
+('EN0036', 636, 'Casa 89', 'Itararé', '55782-986', NULL),
+('EN0037', 737, 'Apto 12', 'Cristo Rei', '66178-678', NULL),
+('EN0038', 838, NULL, 'Coqueiro', '17789-789', NULL),
+('EN0039', 939, 'Casa 31', 'Cidade Nova', '28879-870', NULL),
+('EN0040', 1310, 'Apto 19', 'Cidade Jardim', '99789-973', NULL),
+
+-- Endereços para funcionários
+('EN0041', 141, 'Apto 263', 'Cabral', '24675-503', NULL),
+('EN0042', 242, 'Casa 90', 'Pinheiros', '14675-573', NULL),
+('EN0043', 343, 'Bloco E', 'Marsilac', '23958-307', NULL),
+('EN0044', 444, NULL, 'Paraíso', '10975-278', NULL),
+('EN0045', 545, NULL, 'Vila Maria', '44596-409', NULL),
+('EN0046', 646, 'Casa 78', 'Jardim São Luís', '54584-898', NULL),
+('EN0047', 747, 'Apto 101', 'Moema', '66594-690', NULL),
+('EN0048', 848, NULL, 'Anchieta', '17579-539', NULL),
+('EN0049', 949, 'Casa 90', 'Alvorada', '28657-891', NULL),
+('EN0050', 1410, 'Apto 10', 'Água Branca', '94569-929', NULL),
+
+-- Endereços para Imóveis
+('EN0051', 151, 'Apto 20', 'Cabral', '26575-859', NULL),
+('EN0052', 252, 'Casa 1', 'Pinheiros', '15652-523', NULL),
+('EN0053', 353, 'Bloco H', 'Marsilac', '23493-302', NULL),
+('EN0054', 454, NULL, 'Paraíso', '15680-290', NULL),
+('EN0055', 555, 'Apto 23', 'Vila Maria', '45769-490', NULL),
+('EN0056', 656, NULL, 'Jardim São Luís', '54752-982', NULL),
+('EN0057', 757, 'Apto 17', 'Moema', '66475-772', NULL),
+('EN0058', 858, NULL, 'Anchieta', '17775-980', NULL),
+('EN0059', 959, 'Casa 26', 'Alvorada', '24675-787', NULL),
+('EN0060', 1510, NULL, 'Água Branca', '93759-894', NULL),
+
+('EN0061', 161, 'Apto 76', 'Goiabeiras', '12345-678', NULL),
+('EN0062', 262, 'Casa 23', 'Bonfim', '23456-789', NULL),
+('EN0063', 363, 'Bloco K', 'Castelo Branco', '34567-890', NULL),
+('EN0064', 464, NULL, 'Castanheira', '45678-901', NULL),
+('EN0065', 565, NULL, 'Grajaú', '56789-012', NULL),
+('EN0066', 666, NULL, 'Itararé', '67890-123', NULL),
+('EN0067', 767, 'Apto 15', 'Cristo Rei', '78901-234', NULL),
+('EN0068', 868, NULL, 'Coqueiro', '89012-345', NULL),
+('EN0069', 969, 'Casa 3', 'Cidade Nova', '90123-456', NULL),
+('EN0070', 1610, 'Bloco M', 'Cidade Jardim', '01234-567', NULL),
+
+('EN0071', 171, 'Apto 20', 'Cabral', '12345-111', NULL),
+('EN0072', 272, 'Casa 1', 'Pinheiros', '22222-222', NULL),
+('EN0073', 373, 'Bloco H', 'Marsilac', '33333-333', NULL),
+('EN0074', 474, NULL, 'Paraíso', '44444-444', NULL),
+('EN0075', 575, 'Apto 23', 'Vila Maria', '55555-555', NULL),
+('EN0076', 676, NULL, 'Jardim São Luís', '66666-666', NULL),
+('EN0077', 777, 'Apto 17', 'Moema', '77777-777', NULL),
+('EN0078', 878, NULL, 'Anchieta', '88888-888', NULL),
+('EN0079', 979, 'Casa 26', 'Alvorada', '99999-999', NULL),
+('EN0080', 1710, NULL, 'Água Branca', '10000-256', NULL),
+
+('EN0081', 181, 'Apto 76', 'Goiabeiras', '13245-569', NULL),
+('EN0082', 282, 'Casa 23', 'Bonfim', '21222-523', NULL),
+('EN0083', 383, 'Bloco K', 'Castelo Branco', '33233-301', NULL),
+('EN0084', 484, NULL, 'Castanheira', '10700-278', NULL),
+('EN0085', 585, NULL, 'Grajaú', '44744-478', NULL),
+('EN0086', 686, NULL, 'Itararé', '55855-859', NULL),
+('EN0087', 787, 'Apto 15', 'Cristo Rei', '66166-678', NULL),
+('EN0088', 888, NULL, 'Coqueiro', '17777-789', NULL),
+('EN0089', 989, 'Casa 3', 'Cidade Nova', '28888-879', NULL),
+('EN0090', 1810, 'Bloco M', 'Cidade Jardim', '99999-972', NULL),
+
+('EN0091', 191, 'Apto 20', 'Cabral', '21345-560', NULL),
+('EN0092', 292, 'Casa 1', 'Pinheiros', '12122-523', NULL),
+('EN0093', 393, 'Bloco H', 'Marsilac', '23233-302', NULL),
+('EN0094', 494, NULL, 'Paraíso', '17000-279', NULL),
+('EN0095', 595, 'Apto 23', 'Vila Maria', '44756-479', NULL),
+('EN0096', 696, NULL, 'Jardim São Luís', '55782-986', NULL),
+('EN0097', 797, 'Apto 17', 'Moema', '66178-678', NULL),
+('EN0098', 898, NULL, 'Anchieta', '17789-789', NULL),
+('EN0099', 999, 'Casa 26', 'Alvorada', '28879-870', NULL),
+('EN0100', 1910, NULL, 'Água Branca', '99789-973', NULL),
+
+('EN0101', 1101, 'Apto 76', 'Goiabeiras', '24675-503', NULL),
+('EN0102', 2102, 'Casa 23', 'Bonfim', '14675-573', NULL),
+('EN0103', 3103, 'Bloco K', 'Castelo Branco', '23958-307', NULL),
+('EN0104', 4104, NULL, 'Castanheira', '10975-278', NULL),
+('EN0105', 5105, NULL, 'Grajaú', '44596-409', NULL),
+('EN0106', 6106, NULL, 'Itararé', '54584-898', NULL),
+('EN0107', 7107, 'Apto 15', 'Cristo Rei', '66594-690', NULL),
+('EN0108', 8108, NULL, 'Coqueiro', '17579-539', NULL),
+('EN0109', 9109, 'Casa 3', 'Cidade Nova', '28657-891', NULL),
+('EN0110', 1100, 'Bloco M', 'Cidade Jardim', '94569-929', NULL);
 
 -- Insert into Funcionario
 INSERT INTO Funcionario (FuncPrimNome, FuncUltimoNome, FuncCPF, FuncDtNasc, FuncCargo, FuncSalario, EndID) VALUES
-('João', 'Silva', '12345678901', '1990-01-01', 'Gerente', 5000.00, 'EN0001'),
-('Maria', 'Fernandes', '23456789012', '1992-02-02', 'Analista', 4000.00, 'EN0002'),
-('Carlos', 'Machado', '34567890123', '1988-03-03', 'Vendedor', 3500.00, 'EN0003'),
-('Ana', 'Barbosa', '45678901234', '1991-04-04', 'Recepcionista', 3000.00, 'EN0004'),
-('Lucas', 'Costa', '56789012345', '1985-05-05', 'Diretor', 7000.00, 'EN0005'),
-('Patrícia', 'Almeida', '67890123456', '1987-06-06', 'Consultor', 4500.00, 'EN0006'),
-('Felipe', 'Teixeira', '78901234567', '1984-07-07', 'Assistente', 2800.00, 'EN0007'),
-('Sandra', 'Gomes', '89012345678', '1989-08-08', 'Coordenador', 4800.00, 'EN0008'),
-('Rafael', 'Pereira', '90123456789', '1993-09-09', 'Supervisor', 5200.00, 'EN0009'),
-('Teresa', 'Nunes', '12345678910', '1994-10-10', 'Operador', 3200.00, 'EN0010');
+('João', 'Silva', '12345678901', '1990-01-01', 'Gerente', 5000.00, 'EN0041'),
+('Maria', 'Fernandes', '23456789012', '1992-02-02', 'Analista', 4000.00, 'EN0042'),
+('Carlos', 'Machado', '34567890123', '1988-03-03', 'Vendedor', 3500.00, 'EN0043'),
+('Ana', 'Barbosa', '45678901234', '1991-04-04', 'Recepcionista', 3000.00, 'EN0044'),
+('Lucas', 'Costa', '56789012345', '1985-05-05', 'Diretor', 7000.00, 'EN0045'),
+('Patrícia', 'Almeida', '67890123456', '1987-06-06', 'Consultor', 4500.00, 'EN0046'),
+('Felipe', 'Teixeira', '78901234567', '1984-07-07', 'Assistente', 2800.00, 'EN0047'),
+('Sandra', 'Gomes', '89012345678', '1989-08-08', 'Coordenador', 4800.00, 'EN0048'),
+('Rafael', 'Pereira', '90123456789', '1993-09-09', 'Supervisor', 5200.00, 'EN0049'),
+('Teresa', 'Nunes', '12345678910', '1994-10-10', 'Operador', 3200.00, 'EN0050');
 
 -- Insert into Corretor
 INSERT INTO Corretor (CorretorRegistro, OrcamentoMes, FuncCPF) VALUES
@@ -169,19 +272,18 @@ INSERT INTO Regiao (RegiaoID, RegiaoNome, FuncCPF) VALUES
 ('RE0017', 'Norte de Maceió', '78901234567'),
 ('RE0018', 'Centro de Porto Velho', '89012345678'),
 ('RE0019', 'Zona Norte de Boa Vista', '90123456789'),
-('RE0020', 'Leste de Belém', '12345678910');
+('RE0020', 'Leste de Belém', '12345678910'),
 
---- ### NOVOS DADOS
--- ('RE0011', 'Noroeste de Fortaleza', '12345678901'),
--- ('RE0012', 'Centro de Manaus', '23456789012'),
--- ('RE0013', 'Sul de Brasília', '34567890123'),
--- ('RE0014', 'Centro de Belém', '45678901234'),
--- ('RE0015', 'Leste de Cuiabá', '56789012345'),
--- ('RE0016', 'Oeste de Natal', '67890123456'),
--- ('RE0017', 'Norte de João Pessoa', '78901234567'),
--- ('RE0018', 'Sul de Teresina', '89012345678'),
--- ('RE0019', 'Centro de São Luís', '90123456789'),
--- ('RE0020', 'Oeste de Aracaju', '12345678910');
+('RE0021', 'Centro de Juazeiro do Norte', '12345678901'),
+('RE0022', 'Sul de Natal', '23456789012'),
+('RE0023', 'Norte de Arcoverde', '34567890123'),
+('RE0024', 'Sul de Arauá', '45678901234'),
+('RE0025', 'Oeste de Iranduba', '56789012345'),
+('RE0026', 'Leste de Oiapoque', '67890123456'),
+('RE0027', 'Norte de Balsas', '78901234567'),
+('RE0028', 'Centro de Santa Maria do Suaçuí', '89012345678'),
+('RE0029', 'Zona Norte de Londrina', '90123456789'),
+('RE0030', 'Centro de Chapecó', '12345678910');
 
 
 -- Insert into Cliente
@@ -198,53 +300,54 @@ INSERT INTO Cliente (ClientePrimNome, CliUltimoNome, ClienteCPF, ClienteDtNasc, 
 ('Paulo', 'Nogueira', '90938475644', '1965-07-20', '62987654321', 'EN0009'),
 ('Aline', 'Barros', '10093847564', '1973-01-30', '81987654321', 'EN0010'),
 
--- ### NOVOS CLIENTES COMPRADORES
-('Carlos', 'Silva', '11093847561', '1988-01-10', '12987654321', 'EN0011'),
-('Ana', 'Pereira', '12093847562', '1991-04-15', '22987654321', 'EN0012'),
-('João', 'Santos', '13093847563', '1982-07-22', '32987654321', 'EN0013'),
-('Mariana', 'Lima', '14093847564', '1994-12-05', '42987654321', 'EN0014'),
-('Pedro', 'Melo', '15093847565', '1976-02-19', '52987654321', 'EN0015'),
-('Camila', 'Alves', '16093847566', '1989-06-14', '62987654321', 'EN0016'),
-('Eduardo', 'Ribeiro', '17093847567', '1981-11-25', '72987654321', 'EN0017'),
-('Patricia', 'Souza', '18093847568', '1993-08-07', '82987654321', 'EN0018'),
-('Gustavo', 'Costa', '19093847569', '1978-10-13', '92987654321', 'EN0019'),
-('Bianca', 'Fernandes', '20093847560', '1986-03-18', '02987654321', 'EN0020'),
--- Novos clientes compradores
-('Luciano', 'Campos', '11293847556', '1986-11-25', '31987654322', 'EN0021'),
-('Márcia', 'Prado', '20938475764', '1991-07-25', '21987654123', 'EN0022'),
-('Roberta', 'Souza', '30938475864', '1976-07-10', '31987654123', 'EN0023'),
-('Fernando', 'Oliveira', '40938475964', '1983-09-30', '27987654123', 'EN0024'),
-('Renê', 'Costa', '50938475064', '1969-10-01', '71987654123', 'EN0025'),
-('Juliano', 'Ferreira', '60938475146', '1995-04-20', '41987654123', 'EN0026'),
-('Herica', 'Martins', '70938475264', '1978-10-15', '48987654123', 'EN0027'),
-('Lorenzo', 'Garcia', '80938475364', '1992-06-05', '51987654123', 'EN0028'),
-('Paula', 'Barros', '90938475446', '1965-08-20', '62987654123', 'EN0029'),
-('Alice', 'Nogueira', '10093847456', '1973-02-27', '81987654123', 'EN0030');
+-- ### CLIENTES COMPRADORES
+('Carlos', 'Silva', '11093847561', '1988-01-10', '12987654321', 'EN0021'),
+('Ana', 'Pereira', '12093847562', '1991-04-15', '22987654321', 'EN0022'),
+('João', 'Santos', '13093847563', '1982-07-22', '32987654321', 'EN0023'),
+('Mariana', 'Lima', '14093847564', '1994-12-05', '42987654321', 'EN0024'),
+('Pedro', 'Melo', '15093847565', '1976-02-19', '52987654321', 'EN0025'),
+('Camila', 'Alves', '16093847566', '1989-06-14', '62987654321', 'EN0026'),
+('Eduardo', 'Ribeiro', '17093847567', '1981-11-25', '72987654321', 'EN0027'),
+('Patricia', 'Souza', '18093847568', '1993-08-07', '82987654321', 'EN0028'),
+('Gustavo', 'Costa', '19093847569', '1978-10-13', '92987654321', 'EN0029'),
+('Bianca', 'Fernandes', '20093847560', '1986-03-18', '02987654321', 'EN0030'),
+
+('Luciano', 'Campos', '11293847556', '1986-11-25', '31987654322', 'EN0031'),
+('Márcia', 'Prado', '20938475764', '1991-07-25', '21987654123', 'EN0032'),
+('Roberta', 'Souza', '30938475864', '1976-07-10', '31987654123', 'EN0033'),
+('Fernando', 'Oliveira', '40938475964', '1983-09-30', '27987654123', 'EN0034'),
+('Renê', 'Costa', '50938475064', '1969-10-01', '71987654123', 'EN0035'),
+('Juliano', 'Ferreira', '60938475146', '1995-04-20', '41987654123', 'EN0036'),
+('Herica', 'Martins', '70938475264', '1978-10-15', '48987654123', 'EN0037'),
+('Lorenzo', 'Garcia', '80938475364', '1992-06-05', '51987654123', 'EN0038'),
+('Paula', 'Barros', '90938475446', '1965-08-20', '62987654123', 'EN0039'),
+('Alice', 'Nogueira', '10093847456', '1973-02-27', '81987654123', 'EN0040');
 
 
 -- Insert into Imovel
 INSERT INTO Imovel (ImovelID, ImovelTipo, ImovelQtdQuartos, ImovelQtdBanheiros, ImovelQtdGaragem, ImovelM2, ImovelValor, ImovelVazio, RegiaoID, EndID) VALUES
-('IM0001', 'Apartamento', 3, 2, 1, 90, 500000.00, TRUE, 'RE0001', 'EN0001'),
-('IM0002', 'Casa', 4, 3, 2, 200, 1200000.00, FALSE, 'RE0002', 'EN0002'),
-('IM0003', 'Cobertura', 2, 2, 1, 100, 750000.00, FALSE, 'RE0003', 'EN0003'),
-('IM0004', 'Apartamento', 1, 1, 1, 50, 300000.00, TRUE, 'RE0004', 'EN0004'),
-('IM0005', 'Casa', 3, 4, 2, 180, 950000.00, TRUE, 'RE0005', 'EN0005'),
-('IM0006', 'Apartamento', 2, 1, 1, 70, 350000.00, FALSE, 'RE0006', 'EN0006'),
-('IM0007', 'Cobertura', 3, 3, 2, 150, 850000.00, TRUE, 'RE0007', 'EN0007'),
-('IM0008', 'Casa', 5, 4, 3, 250, 1500000.00, FALSE, 'RE0008', 'EN0008'),
-('IM0009', 'Apartamento', 1, 1, 1, 45, 250000.00, TRUE, 'RE0009', 'EN0009'),
-('IM0010', 'Casa', 4, 3, 2, 190, 1100000.00, TRUE, 'RE0010', 'EN0010'),
+('IM0001', 'Apartamento', 3, 2, 1, 90, 500000.00, TRUE, 'RE0021', 'EN0051'),
+('IM0002', 'Casa', 4, 3, 2, 200, 1200000.00, FALSE, 'RE0022', 'EN0052'),
+('IM0003', 'Cobertura', 2, 2, 1, 100, 750000.00, FALSE, 'RE0023', 'EN0053'),
+('IM0004', 'Apartamento', 1, 1, 1, 50, 300000.00, TRUE, 'RE0024', 'EN0054'),
+('IM0005', 'Casa', 3, 4, 2, 180, 950000.00, TRUE, 'RE0025', 'EN0055'),
+('IM0006', 'Apartamento', 2, 1, 1, 70, 350000.00, FALSE, 'RE0026', 'EN0056'),
+('IM0007', 'Cobertura', 3, 3, 2, 150, 850000.00, TRUE, 'RE0027', 'EN0057'),
+('IM0008', 'Casa', 5, 4, 3, 250, 1500000.00, FALSE, 'RE0028', 'EN0058'),
+('IM0009', 'Apartamento', 1, 1, 1, 45, 250000.00, TRUE, 'RE0029', 'EN0059'),
+('IM0010', 'Casa', 4, 3, 2, 190, 1100000.00, TRUE, 'RE0030', 'EN0060'),
 --Novos imóveis (os proprietários são os mesmos de anteriormente, uma mesma pessoa vendendo mais de um imóvel)
-('IM0011', 'Apartamento', 2, 3, 1, 90, 500000.00, TRUE, 'RE0011', 'EN0031'),
-('IM0012', 'Casa', 4, 2, 2, 200, 1200000.00, FALSE, 'RE0012', 'EN0032'),
-('IM0013', 'Cobertura', 3, 2, 1, 100, 750000.00, FALSE, 'RE0013', 'EN0033'),
-('IM0014', 'Apartamento', 2, 1, 1, 50, 300000.00, TRUE, 'RE0014', 'EN0034'),
-('IM0015', 'Casa', 3, 1, 2, 180, 950000.00, TRUE, 'RE0015', 'EN0035'),
-('IM0016', 'Apartamento', 1, 1, 1, 70, 350000.00, FALSE, 'RE0016', 'EN0036'),
-('IM0017', 'Cobertura', 2, 3, 2, 150, 850000.00, TRUE, 'RE0017', 'EN0037'),
-('IM0018', 'Casa', 5, 3, 3, 250, 1500000.00, FALSE, 'RE0018', 'EN0038'),
-('IM0019', 'Apartamento', 3, 1, 1, 45, 250000.00, TRUE, 'RE0019', 'EN0039'),
-('IM0020', 'Casa', 4, 2, 2, 190, 1100000.00, TRUE, 'RE0020', 'EN0040');
+
+('IM0011', 'Apartamento', 2, 3, 1, 90, 500000.00, TRUE, 'RE0001', 'EN0061'),
+('IM0012', 'Casa', 4, 2, 2, 200, 1200000.00, FALSE, 'RE0002', 'EN0062'),
+('IM0013', 'Cobertura', 3, 2, 1, 100, 750000.00, FALSE, 'RE0003', 'EN0063'),
+('IM0014', 'Apartamento', 2, 1, 1, 50, 300000.00, TRUE, 'RE0004', 'EN0064'),
+('IM0015', 'Casa', 3, 1, 2, 180, 950000.00, TRUE, 'RE0015', 'EN0005'),
+('IM0016', 'Apartamento', 1, 1, 1, 70, 350000.00, FALSE, 'RE0006', 'EN0066'),
+('IM0017', 'Cobertura', 2, 3, 2, 150, 850000.00, TRUE, 'RE0007', 'EN0067'),
+('IM0018', 'Casa', 5, 3, 3, 250, 1500000.00, FALSE, 'RE0008', 'EN0068'),
+('IM0019', 'Apartamento', 3, 1, 1, 45, 250000.00, TRUE, 'RE0009', 'EN0069'),
+('IM0020', 'Casa', 4, 2, 2, 190, 1100000.00, TRUE, 'RE0010', 'EN0070');
 
 -- Insert into Anuncio
 INSERT INTO Anuncio (AnuncioID, AnuncioMidia, AnuncioPreco, AnuncioData, ImovelID, FuncCPF) VALUES
@@ -285,27 +388,27 @@ INSERT INTO Contato (ContatoID, ContatoMeio, ContatoNatureza, ContatoNome, Conta
 
 -- Insert into TransVenda
 INSERT INTO TransVenda (TransVendaID, TransVendaValor, TransVendaData, TransComissao, FuncCPF) VALUES
-('TV0001', 550000.00, '2023-06-01', 5000.00, '12345678901'),
+('TV0001', 8790000.00, '2023-06-01', 5000.00, '12345678901'),
 ('TV0002', 1250000.00, '2023-06-15', 10000.00, '23456789012'),
-('TV0003', 800000.00, '2023-07-01', 7500.00, '34567890123'),
-('TV0004', 320000.00, '2023-07-15', 3000.00, '45678901234'),
+('TV0003', 7950100.00, '2023-07-01', 7500.00, '34567890123'),
+('TV0004', 7500000.00, '2023-07-15', 3000.00, '45678901234'),
 ('TV0005', 1000000.00, '2023-08-01', 9000.00, '56789012345'),
-('TV0006', 400000.00, '2023-08-15', 3500.00, '67890123456'),
-('TV0007', 900000.00, '2023-09-01', 8000.00, '78901234567'),
-('TV0008', 1600000.00, '2023-09-15', 15000.00, '89012345678'),
+('TV0006', 9000000.00, '2023-08-15', 3500.00, '67890123456'),
+('TV0007', 8560000.00, '2023-09-01', 8000.00, '78901234567'),
+('TV0008', 8025300.00, '2023-09-15', 15000.00, '89012345678'),
 ('TV0009', 300000.00, '2023-10-01', 2500.00, '90123456789'),
-('TV0010', 1200000.00, '2023-10-15', 11000.00, '12345678910'),
+('TV0010', 8325100.00, '2023-10-15', 11000.00, '12345678910'),
 --Novos Dados
-('TV0011', 550000.00, '2023-08-01', 5000.00, '12345678901'),
+('TV0011', 8978000.00, '2023-08-01', 5000.00, '12345678901'),
 ('TV0012', 1250000.00, '2023-08-15', 10000.00, '23456789012'),
-('TV0013', 800000.00, '2023-09-01', 7500.00, '34567890123'),
-('TV0014', 320000.00, '2023-09-15', 3000.00, '45678901234'),
+('TV0013', 7892560.00, '2023-09-01', 7500.00, '34567890123'),
+('TV0014', 7468900.00, '2023-09-15', 3000.00, '45678901234'),
 ('TV0015', 1000000.00, '2023-10-01', 9000.00, '56789012345'),
-('TV0016', 400000.00, '2023-10-15', 3500.00, '67890123456'),
-('TV0017', 900000.00, '2023-11-01', 8000.00, '78901234567'),
-('TV0018', 1600000.00, '2023-11-15', 15000.00, '89012345678'),
+('TV0016', 8990000.00, '2023-10-15', 3500.00, '67890123456'),
+('TV0017', 8469800.00, '2023-11-01', 8000.00, '78901234567'),
+('TV0018', 8000580.00, '2023-11-15', 15000.00, '89012345678'),
 ('TV0019', 300000.00, '2023-12-01', 2500.00, '90123456789'),
-('TV0020', 1200000.00, '2023-12-15', 11000.00, '12345678910');
+('TV0020', 8312100.00, '2023-12-15', 11000.00, '12345678910');
 
 -- Insert into CliPropriedade
 INSERT INTO CliPropriedade (ImovelID, ClienteCPF) VALUES
@@ -402,7 +505,7 @@ UPDATE Endereco SET RegiaoID = 'RE0007' WHERE EndID = 'EN0007';
 UPDATE Endereco SET RegiaoID = 'RE0008' WHERE EndID = 'EN0008';
 UPDATE Endereco SET RegiaoID = 'RE0009' WHERE EndID = 'EN0009';
 UPDATE Endereco SET RegiaoID = 'RE0010' WHERE EndID = 'EN0010';
--- ### NOVOS DADOS
+
 UPDATE Endereco SET RegiaoID = 'RE0001' WHERE EndID = 'EN0011';
 UPDATE Endereco SET RegiaoID = 'RE0002' WHERE EndID = 'EN0012';
 UPDATE Endereco SET RegiaoID = 'RE0003' WHERE EndID = 'EN0013';
@@ -435,5 +538,82 @@ UPDATE Endereco SET RegiaoID = 'RE0017' WHERE EndID = 'EN0037';
 UPDATE Endereco SET RegiaoID = 'RE0018' WHERE EndID = 'EN0038';
 UPDATE Endereco SET RegiaoID = 'RE0019' WHERE EndID = 'EN0039';
 UPDATE Endereco SET RegiaoID = 'RE0020' WHERE EndID = 'EN0040';
+
+UPDATE Endereco SET RegiaoID = 'RE0021' WHERE EndID = 'EN0041';
+UPDATE Endereco SET RegiaoID = 'RE0022' WHERE EndID = 'EN0042';
+UPDATE Endereco SET RegiaoID = 'RE0023' WHERE EndID = 'EN0043';
+UPDATE Endereco SET RegiaoID = 'RE0024' WHERE EndID = 'EN0044';
+UPDATE Endereco SET RegiaoID = 'RE0025' WHERE EndID = 'EN0045';
+UPDATE Endereco SET RegiaoID = 'RE0026' WHERE EndID = 'EN0046';
+UPDATE Endereco SET RegiaoID = 'RE0027' WHERE EndID = 'EN0047';
+UPDATE Endereco SET RegiaoID = 'RE0028' WHERE EndID = 'EN0048';
+UPDATE Endereco SET RegiaoID = 'RE0029' WHERE EndID = 'EN0049';
+UPDATE Endereco SET RegiaoID = 'RE0030' WHERE EndID = 'EN0050';
+
+UPDATE Endereco SET RegiaoID = 'RE0021' WHERE EndID = 'EN0051';
+UPDATE Endereco SET RegiaoID = 'RE0022' WHERE EndID = 'EN0052';
+UPDATE Endereco SET RegiaoID = 'RE0023' WHERE EndID = 'EN0053';
+UPDATE Endereco SET RegiaoID = 'RE0024' WHERE EndID = 'EN0054';
+UPDATE Endereco SET RegiaoID = 'RE0025' WHERE EndID = 'EN0055';
+UPDATE Endereco SET RegiaoID = 'RE0026' WHERE EndID = 'EN0056';
+UPDATE Endereco SET RegiaoID = 'RE0027' WHERE EndID = 'EN0057';
+UPDATE Endereco SET RegiaoID = 'RE0028' WHERE EndID = 'EN0058';
+UPDATE Endereco SET RegiaoID = 'RE0029' WHERE EndID = 'EN0059';
+UPDATE Endereco SET RegiaoID = 'RE0030' WHERE EndID = 'EN0060';
+
+UPDATE Endereco SET RegiaoID = 'RE0001' WHERE EndID = 'EN0061';
+UPDATE Endereco SET RegiaoID = 'RE0002' WHERE EndID = 'EN0062';
+UPDATE Endereco SET RegiaoID = 'RE0003' WHERE EndID = 'EN0063';
+UPDATE Endereco SET RegiaoID = 'RE0004' WHERE EndID = 'EN0064';
+UPDATE Endereco SET RegiaoID = 'RE0005' WHERE EndID = 'EN0065';
+UPDATE Endereco SET RegiaoID = 'RE0006' WHERE EndID = 'EN0066';
+UPDATE Endereco SET RegiaoID = 'RE0007' WHERE EndID = 'EN0067';
+UPDATE Endereco SET RegiaoID = 'RE0008' WHERE EndID = 'EN0068';
+UPDATE Endereco SET RegiaoID = 'RE0009' WHERE EndID = 'EN0069';
+UPDATE Endereco SET RegiaoID = 'RE0010' WHERE EndID = 'EN0070';
+
+UPDATE Endereco SET RegiaoID = 'RE0001' WHERE EndID = 'EN0071';
+UPDATE Endereco SET RegiaoID = 'RE0002' WHERE EndID = 'EN0072';
+UPDATE Endereco SET RegiaoID = 'RE0003' WHERE EndID = 'EN0073';
+UPDATE Endereco SET RegiaoID = 'RE0004' WHERE EndID = 'EN0074';
+UPDATE Endereco SET RegiaoID = 'RE0005' WHERE EndID = 'EN0075';
+UPDATE Endereco SET RegiaoID = 'RE0006' WHERE EndID = 'EN0076';
+UPDATE Endereco SET RegiaoID = 'RE0007' WHERE EndID = 'EN0077';
+UPDATE Endereco SET RegiaoID = 'RE0008' WHERE EndID = 'EN0078';
+UPDATE Endereco SET RegiaoID = 'RE0009' WHERE EndID = 'EN0079';
+UPDATE Endereco SET RegiaoID = 'RE0010' WHERE EndID = 'EN0080';
+
+UPDATE Endereco SET RegiaoID = 'RE0011' WHERE EndID = 'EN0081';
+UPDATE Endereco SET RegiaoID = 'RE0012' WHERE EndID = 'EN0082';
+UPDATE Endereco SET RegiaoID = 'RE0013' WHERE EndID = 'EN0083';
+UPDATE Endereco SET RegiaoID = 'RE0014' WHERE EndID = 'EN0084';
+UPDATE Endereco SET RegiaoID = 'RE0015' WHERE EndID = 'EN0085';
+UPDATE Endereco SET RegiaoID = 'RE0016' WHERE EndID = 'EN0086';
+UPDATE Endereco SET RegiaoID = 'RE0017' WHERE EndID = 'EN0087';
+UPDATE Endereco SET RegiaoID = 'RE0018' WHERE EndID = 'EN0088';
+UPDATE Endereco SET RegiaoID = 'RE0019' WHERE EndID = 'EN0089';
+UPDATE Endereco SET RegiaoID = 'RE0020' WHERE EndID = 'EN0090';
+
+UPDATE Endereco SET RegiaoID = 'RE0011' WHERE EndID = 'EN0091';
+UPDATE Endereco SET RegiaoID = 'RE0012' WHERE EndID = 'EN0092';
+UPDATE Endereco SET RegiaoID = 'RE0013' WHERE EndID = 'EN0093';
+UPDATE Endereco SET RegiaoID = 'RE0014' WHERE EndID = 'EN0094';
+UPDATE Endereco SET RegiaoID = 'RE0015' WHERE EndID = 'EN0095';
+UPDATE Endereco SET RegiaoID = 'RE0016' WHERE EndID = 'EN0096';
+UPDATE Endereco SET RegiaoID = 'RE0017' WHERE EndID = 'EN0097';
+UPDATE Endereco SET RegiaoID = 'RE0018' WHERE EndID = 'EN0098';
+UPDATE Endereco SET RegiaoID = 'RE0019' WHERE EndID = 'EN0099';
+UPDATE Endereco SET RegiaoID = 'RE0020' WHERE EndID = 'EN0100';
+
+UPDATE Endereco SET RegiaoID = 'RE0021' WHERE EndID = 'EN0101';
+UPDATE Endereco SET RegiaoID = 'RE0022' WHERE EndID = 'EN0102';
+UPDATE Endereco SET RegiaoID = 'RE0023' WHERE EndID = 'EN0103';
+UPDATE Endereco SET RegiaoID = 'RE0024' WHERE EndID = 'EN0104';
+UPDATE Endereco SET RegiaoID = 'RE0025' WHERE EndID = 'EN0105';
+UPDATE Endereco SET RegiaoID = 'RE0026' WHERE EndID = 'EN0106';
+UPDATE Endereco SET RegiaoID = 'RE0027' WHERE EndID = 'EN0107';
+UPDATE Endereco SET RegiaoID = 'RE0028' WHERE EndID = 'EN0108';
+UPDATE Endereco SET RegiaoID = 'RE0029' WHERE EndID = 'EN0109';
+UPDATE Endereco SET RegiaoID = 'RE0030' WHERE EndID = 'EN0110';
 
 ALTER TABLE Endereco ALTER COLUMN RegiaoID SET NOT NULL;
